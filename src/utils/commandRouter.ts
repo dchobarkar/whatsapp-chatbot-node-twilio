@@ -2,9 +2,12 @@ import menu from "../handlers/menu";
 import help from "../handlers/help";
 import pricing from "../handlers/pricing";
 import agent from "../handlers/agent";
-import fallback from "../handlers/fallback";
+import { getOpenAIReply } from "./openaiClient";
 
-const commandRouter = (input: string, profileName?: string): string => {
+const commandRouter = async (
+  input: string,
+  profileName?: string
+): Promise<string> => {
   const text = input.trim().toLowerCase();
 
   if (["menu"].includes(text)) return menu(profileName);
@@ -12,7 +15,7 @@ const commandRouter = (input: string, profileName?: string): string => {
   if (["pricing"].includes(text)) return pricing();
   if (["agent"].includes(text)) return agent();
 
-  return fallback();
+  return await getOpenAIReply(input, profileName);
 };
 
 export default commandRouter;
