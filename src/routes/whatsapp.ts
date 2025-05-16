@@ -5,10 +5,10 @@ import commandRouter from "../utils/commandRouter";
 
 const router = Router();
 
-router.post("/", (req: Request, res: Response) => {
+router.post("/", async (req: Request, res: Response) => {
   const { Body, ProfileName } = req.body;
 
-  const replyText = commandRouter(Body, ProfileName);
+  const replyText = await commandRouter(Body, ProfileName);
 
   const messagingResponse = new twiml.MessagingResponse();
   messagingResponse.message(replyText);
