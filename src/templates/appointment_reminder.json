@@ -1,0 +1,11 @@
+{
+  "name": "appointment_reminder",
+  "language": "en",
+  "category": "TRANSACTIONAL",
+  "components": [
+    {
+      "type": "BODY",
+      "text": "Hi {{1}}, your appointment is scheduled for {{2}}."
+    }
+  ]
+}
