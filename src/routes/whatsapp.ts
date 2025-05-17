@@ -11,7 +11,8 @@ router.post("/", async (req: Request, res: Response) => {
   const replyText = await commandRouter(Body, ProfileName);
 
   const messagingResponse = new twiml.MessagingResponse();
-  messagingResponse.message(replyText);
+  const msg = messagingResponse.message(replyText.body);
+  if (replyText.mediaUrl) msg.media(replyText.mediaUrl);
 
   res.writeHead(200, { "Content-Type": "text/xml" });
   res.end(messagingResponse.toString());
