@@ -14,3 +14,35 @@ Each branch corresponds to a section from the accompanying blog series:
 - `08-enhancements` – Rich Media, Multi-language, Buttons, etc.
 
 In this repo, we’ll build a production-ready WhatsApp chatbot using Node.js, Twilio, and OpenAI step-by-step.
+
+## ✅ Production Go-Live Checklist
+
+To move from sandbox to a live WhatsApp bot:
+
+1. **Facebook Business Verification**
+
+   - Complete verification at <https://business.facebook.com/settings>
+   - Link WABA to Twilio under Messaging > Senders > WhatsApp Senders
+
+2. **Register a Real Number**
+
+   - Use a clean number not tied to WhatsApp app
+   - Verify via 6-digit OTP
+
+3. **Submit Message Templates**
+
+   - Create under Messaging > Content > WhatsApp Templates in Twilio
+   - Use placeholders for personalization
+
+4. **Capture Opt-In**
+
+   - Use form/SMS/in-app toggle
+   - Store timestamp + source of consent
+
+5. **Update Twilio Webhook**
+
+   - Ensure webhook URL is correctly set in the new sender settings
+
+6. **Test Everything**
+   - Ensure opt-ins are respected
+   - Validate logs and compliance
